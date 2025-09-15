@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HOLYPLANET — Official Site</title>
+  <meta name="description" content="HOLYPLANET — Entertainments, myths, surprising facts, and culture videos." />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="icon" href="favicon.png" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="HOLYPLANET — Official Site" />
+  <meta property="og:description" content="Entertainments, myths, surprising facts, and culture videos." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.com" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <!-- Styles -->
+  <style>
+    :root{
+      --bg:#0b1020;      /* deep navy */
+      --card:#111936;    /* card surface */
+      --text:#e6ecff;    /* primary text */
+      --muted:#9ab0ff;   /* secondary text */
+      --brand:#8b5cf6;   /* accent (violet) */
+      --brand-2:#22d3ee; /* secondary accent (cyan) */
+      --ring:rgba(106,169,255,.5);
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      background:
+        radial-gradient(1200px 800px at 80% -20%, rgba(139,92,246,.25), transparent),
+        radial-gradient(1000px 700px at -10% 10%, rgba(34,211,238,.18), transparent),
+        var(--bg);
+      color:var(--text);
+    }
+    a{color:var(--text); text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+    header{position:sticky; top:0; z-index:50; backdrop-filter: blur(8px); background: rgba(11,16,32,.55); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px}
+    .brand .dot{width:10px; height:10px; border-radius:999px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow:0 0 18px var(--brand)}
+    .menu{display:flex; gap:18px}
+    .menu a{opacity:.8}
+    .menu a:hover{opacity:1}
+    .cta{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.1); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); box-shadow: var(--shadow)}
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns: 1.2fr .8fr; gap:32px; align-items:center; padding:80px 0}
+    .badge{display:inline-flex; gap:10px; align-items:center; font-size:12px; color:var(--muted); padding:6px 10px; border:1px solid rgba(255,255,255,.1); border-radius:999px; background:rgba(255,255,255,.03)}
+    h1{font-size:clamp(32px, 5vw, 56px); line-height:1.05; margin:16px 0 12px}
+    .lead{font-size:18px; color:var(--muted); max-width:55ch}
+    .buttons{display:flex; gap:12px; margin-top:22px}
+    .btn{padding:12px 16px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); box-shadow: var(--shadow)}
+    .btn.primary{background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#0b1020; font-weight:700; border: none}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); box-shadow: var(--shadow)}
+    .avatar{aspect-ratio:1/1; border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.12)}
+    .avatar img{width:100%; height:100%; object-fit:cover}
+
+    /* Sections */
+    section{padding:64px 0}
+    .section-title{font-size:28px; margin:0 0 8px}
+    .section-lead{color:var(--muted); margin:0 0 24px}
+
+    /* Services/Entertainments */
+    .grid-3{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px}
+    .service{padding:18px}
+    .service h3{margin:4px 0 8px}
+    .service p{color:var(--muted); margin:0}
+
+    /* Work */
+    .work-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:16px}
+    .work-item{position:relative; overflow:hidden; border-radius:16px; border:1px solid rgba(255,255,255,.1)}
+    .work-item img{display:block; width:100%; height:220px; object-fit:cover; filter:saturate(105%)}
+    .work-item .meta{position:absolute; inset:auto 0 0; padding:12px 14px; background:linear-gradient(180deg, transparent, rgba(0,0,0,.6)); font-size:14px}
+
+    /* Contact */
+    form{display:grid; gap:12px}
+    input, textarea{background:#0c1532; color:var(--text); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:12px; outline:none}
+    input:focus, textarea:focus{border-color:var(--brand); box-shadow:0 0 0 4px var(--ring)}
+    textarea{min-height:120px}
+
+    /* Footer */
+    footer{padding:32px 0 60px; color:var(--muted); border-top:1px solid rgba(255,255,255,.08)}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr; padding:56px 0}
+      .grid-3{grid-template-columns:1fr}
+      .work-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 560px){
+      .work-grid{grid-template-columns:1fr}
+    }
+  </style>
+
+  <!-- Schema.org (JSON‑LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "HOLYPLANET",
+    "url": "https://your-domain.com",
+    "sameAs": [
+      "https://www.youtube.com/@yourhandle",
+      "https://www.instagram.com/yourhandle",
+      "https://www.tiktok.com/@yourhandle"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">
+        <span class="dot"></span>
+        <span>HOLYPLANET</span>
+      </a>
+      <nav class="menu">
+        <a href="#entertainments">Entertainments</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a class="cta" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <span class="badge">🎬 New videos weekly</span>
+        <h1>Entertainments that hook in seconds.</h1>
+        <p class="lead">HOLYPLANET brings dark‑light‑purple vibes (think Solo Leveling) to myths, mysteries, and smart daily tips. Scroll to watch highlights and message me for collaborations.</p>
+        <div class="buttons">
+          <a class="btn primary" href="#contact">Start a project</a>
+          <a class="btn" href="#work">See work</a>
+        </div>
+      </div>
+      <div class="avatar card">
+        <img src="https://images.unsplash.com/photo-1520975682031-a54d1a3f0f3a?q=80&w=1200&auto=format&fit=crop" alt="Showcase image placeholder" />
+      </div>
+    </section>
+
+    <!-- Entertainments -->
+    <section id="entertainments">
+      <h2 class="section-title">Entertainments</h2>
+      <p class="section-lead">What I create for the HOLYPLANET audience.</p>
+      <div class="grid-3">
+        <article class="service card">
+          <h3>Shorts & Reels</h3>
+          <p>Fast, punchy facts and myths—optimized for YouTube Shorts, TikTok, IG Reels.</p>
+        </article>
+        <article class="service card">
+          <h3>Myths & Mysteries</h3>
+          <p>Strange history, missing cases, and mind‑twisting stories with cinematic edits.</p>
+        </article>
+        <article class="service card">
+          <h3>Brain‑Boost Series</h3>
+          <p>Daily life tips, productivity hacks, and surprising knowledge—bingeable and practical.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work">
+      <h2 class="section-title">Selected Work</h2>
+      <p class="section-lead">Swap these images with your real projects.</p>
+      <div class="work-grid">
+        <a class="work-item" href="#" aria-label="Project A">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Project screenshot" />
+          <div class="meta">Landing page redesign — 2025</div>
+        </a>
+        <a class="work-item" href="#" aria-label="Project B">
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Project screenshot" />
+          <div class="meta">Brand system — 2025</div>
+        </a>
+        <a class="work-item" href="#" aria-label="Project C">
+          <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1200&auto=format&fit=crop" alt="Project screenshot" />
+          <div class="meta">E‑commerce theme — 2024</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <p class="section-lead">Short bio that builds trust.</p>
+      <div class="card" style="padding:18px">
+        <p>Hey, we're <strong>HOLYPLANET</strong>. We create simple, beautiful videos and websites. We care about clean visuals, performance, and results. When we’re not building, we produce videos about culture, myths, and daily life tips.</p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-lead">Tell us about your project. We’ll reply within 24 hours.</p>
+      <div class="card" style="padding:18px">
+        <form id="contactForm">
+          <input required name="name" placeholder="Your name" />
+          <input required type="email" name="email" placeholder="Email" />
+          <textarea required name="message" placeholder="What are you trying to build?"></textarea>
+          <button class="btn primary" type="submit">Send message</button>
+          <p id="formMsg" class="section-lead" style="margin:8px 0 0"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> HOLYPLANET. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple contact form handler — opens user's mail client
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = new FormData(form);
+      const name = encodeURIComponent(data.get('name'));
+      const email = encodeURIComponent(data.get('email'));
+      const message = encodeURIComponent(data.get('message'));
+      const subject = `New project inquiry from ${name}`;
+      const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
+      window.location.href = `mailto:aungkyawhein292025@gmail.com?subject=${subject}&body=${body}`;
+      document.getElementById('formMsg').textContent = 'Opening your email app…';
+    });
+  </script>
+</body>
+</html>
